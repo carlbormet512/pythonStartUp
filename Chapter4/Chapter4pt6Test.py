@@ -9,13 +9,3 @@ def divisible_by_7(numArray):
 
     return return_values
 print(divisible_by_7(numArray))
-
-
-
-#def is_multiple_of_five(n):
-#    return not n % 5
-#def get_multiples_of_five(n):
- #   return list(filter(is_multiple_of_five, range(n)))
-
-
-
