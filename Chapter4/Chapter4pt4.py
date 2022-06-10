@@ -58,7 +58,7 @@ def factorial(n):
 # filter.regular.py
 def is_multiple_of_five(n):
     return not n % 5
-def get_mulyiples_of_five(n):
+def get_multiples_of_five(n):
     return list(filter(is_multiple_of_five, range(n)))
 
 # filter.lambda.py
