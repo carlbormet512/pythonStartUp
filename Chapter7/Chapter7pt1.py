@@ -41,6 +41,8 @@ print("this line will never be reached")
 def squareroot(number):
     if number < 0:
         raise ValueError("No negative numbers please")
+    if number % 2 == True:
+        raise ValueError("No even numbers please")
     return number ** .5
 
 def quadratic(a, b, c):
