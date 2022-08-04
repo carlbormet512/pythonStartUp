@@ -41,7 +41,7 @@ print("this line will never be reached")
 def squareroot(number):
     if number < 0:
         raise ValueError("No negative numbers please")
-    if number % 2 == True:
+    if number % 2 == 0:
         raise ValueError("No even numbers please")
     return number ** .5
 
@@ -142,22 +142,24 @@ with localcontext(Context(prec=5)), open("out.txt", "w") as out_f:
 
 # context/manager.class.py
 class MyContextManager:
-    def __init__(self):
+    def __init__(self):     # This executes when the class gets instantiated
         print("MyContextManager init", id(self))
-    def __enter__(self):
+    def __enter__(self):    # This is executes when the class in invoked inside of a with clause 
         print("Entering 'with' context")
         return self
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type, exc_val, exc_tb):      # This executes when the class exits a with clause
         print(f"{exc_type=} {exc_val=} {exc_tb=}")
         print("Exiting 'with' context")
         return True
 
-# context/manager.class.py
+# Instantiate the class 
 ctx_mgr = MyContextManager()
 print("About to enter 'wtih' context")
-with ctx_mgr as mgr:
+with ctx_mgr as mgr:    
+    # class invoked inside the with clause
     print("Inside 'with' context")
     print(id(mgr))
     raise Exception("Exception inside 'with' context")
     print("This line will never be reached")
+# class invoked exiting the with clause
 print("After 'with' context")
